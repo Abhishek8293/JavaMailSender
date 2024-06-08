@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mail.dto.MailDto;
-import com.mail.service.MailService;
+import com.mail.service.EmailService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,12 +18,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/mail")
 public class MailController {
 
-	private final MailService mailService;
+	private final EmailService mailService;
 
-	@PostMapping
-	public ResponseEntity<Object> sendMail(@RequestBody MailDto mailDto) {
-		mailService.sendMail(mailDto);
-		return new ResponseEntity<Object>("Mail is sent successfully to "+mailDto.getTo(), HttpStatus.OK);
-	}
+	
 
 }
